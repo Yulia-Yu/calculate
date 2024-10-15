@@ -1,48 +1,41 @@
 package ru.yuliayu.calculator._main;
 
-import ru.yuliayu.calculator.service.ReadNumberService;
+import ru.yuliayu.calculator.service.ReadService;
 import ru.yuliayu.calculator.service.ResultWriterService;
 import ru.yuliayu.calculator.until.Calculate;
 
 
 public class _Main {
     public static void main(String[] args) {
-        int n = ReadNumberService.readMenu();
-        double a, b, c;
-
-        while (n != 0) {
-            switch (n) {
+        int choiceMenu = ReadService.readMenu();
+        double num_1, num_2, res;
+        while (choiceMenu != 0) {
+            switch (choiceMenu) {
                 case 1:
-                    a = ReadNumberService.readNum();
-                    b = ReadNumberService.readNum();
-                    c = Calculate.add(a, b);
-                    ResultWriterService.writeRes(a, b, c, "сумма");
-                    n = ReadNumberService.readMenu();
+                    num_1 = ReadService.readNum();
+                    num_2 = ReadService.readNum();
+                    res = Calculate.add(num_1, num_2);
+                    ResultWriterService.writeRes(num_1, num_2, res, "сумма");
+                    choiceMenu = ReadService.readMenu();
                     break;
-
                 case 2:
-                    a = ReadNumberService.readNum();
-                    b = ReadNumberService.readNum();
-                    c = Calculate.sub(a, b);
-                    ResultWriterService.writeRes(a, b, c, "разница");
-                    n = ReadNumberService.readMenu();
+                    num_1 = ReadService.readNum();
+                    num_2 = ReadService.readNum();
+                    res = Calculate.sub(num_1, num_2);
+                    ResultWriterService.writeRes(num_1, num_2, res, "разница");
+                    choiceMenu = ReadService.readMenu();
                     break;
-
                 case 3:
-                    a = ReadNumberService.readNum();
-                    b = ReadNumberService.readNum();
-                    c = Calculate.mul(a, b);
-                    ResultWriterService.writeRes(a, b, c, "произведение");
-                    n = ReadNumberService.readMenu();
+                    num_1 = ReadService.readNum();
+                    num_2 = ReadService.readNum();
+                    res = Calculate.mul(num_1, num_2);
+                    ResultWriterService.writeRes(num_1, num_2, res, "произведение");
+                    choiceMenu = ReadService.readMenu();
                     break;
-
                 case 0:
-                    n = 0;
+                    choiceMenu = 0;
                     break;
-
             }
-
         }
-
     }
 }
